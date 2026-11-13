@@ -1,0 +1,22 @@
+# systemd unit for Linux.
+#   sudo install -m 755 btr-lan-proxy /usr/local/bin/btr-lan-proxy
+#   sudo install -m 644 deploy/btr-lan-proxy.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now btr-lan-proxy
+#   journalctl -u btr-lan-proxy -f
+[Unit]
+Description=Bilibili thread ripper LAN proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/btr-lan-proxy --port 8080 --region overseas
+Restart=on-failure
+RestartSec=3
+DynamicUser=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

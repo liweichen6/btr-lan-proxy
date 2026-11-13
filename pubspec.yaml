@@ -1,0 +1,13 @@
+name: btr_lan_proxy
+description: >-
+  Bilibili thread ripper as a LAN proxy: parallel range downloads for an
+  unmodified player, such as the official TV app.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.8.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

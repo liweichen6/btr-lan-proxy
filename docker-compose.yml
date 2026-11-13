@@ -1,0 +1,14 @@
+# docker compose up -d --build
+services:
+  btr-lan-proxy:
+    build: .
+    container_name: btr-lan-proxy
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # mainland or overseas: which CDN nodes to use.
+      BTR_REGION: overseas
+      BTR_CONCURRENCY: "16"
+      # Set to "1" to log every request and probe the CDN on failures.
+      BTR_DEBUG: "0"

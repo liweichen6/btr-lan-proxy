@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd agent for macOS. Edit the binary path if yours differs, then:
+    cp deploy/com.btr-lan-proxy.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.btr-lan-proxy.plist
+  Log: /tmp/btr-lan-proxy.log
+  A sleeping Mac does not serve requests; keep it awake while the TV is in use.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.btr-lan-proxy</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/btr-lan-proxy</string>
+    <string>--port</string>
+    <string>8080</string>
+    <string>--region</string>
+    <string>overseas</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/btr-lan-proxy.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/btr-lan-proxy.log</string>
+</dict>
+</plist>

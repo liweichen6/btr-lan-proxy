@@ -1,0 +1,6 @@
+include: package:lints/recommended.yaml
+
+analyzer:
+  exclude:
+    # Vendored unchanged; see lib/src/thread_ripper/ORIGIN.
+    - lib/src/thread_ripper/**
